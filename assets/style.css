@@ -1,0 +1,31 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: whitesmoke
+}
+
+form    {
+    margin: 70px auto;
+    height: 30px;
+    text-align: center;
+}
+
+body form p {
+    font-size: 30px;
+}
+
+body form input {
+    font-size: 15px;
+    font-style: italic;
+    text-align: center;
+    width: 380px;
+}
