@@ -8,35 +8,29 @@ não pode usar regx*/
 // primario -> (@ .)
 // secundario -> (.@ @. @@ ..)
 
-// resolver -> .@  / @.
-
-
-
 const frm = document.querySelector("form")
 const calcular = document.getElementById("calcular")
 const res = document.getElementById("res")
 
 frm.addEventListener("submit", (e)  =>  {
    
-    var atribuidor = frm.email.value
-    var verificadorarroba = atribuidor.indexOf("@")
-    var verificadorponto = atribuidor.indexOf('.')
+    const textArroba = frm.email.value
+                                 
+    const pegaArroba = textArroba.indexOf("@")                                              
+    const pegaPonto = textArroba.indexOf(".") 
 
-    if  (verificadorarroba > 1 && verificadorponto > 1)  {          // > >
-    res.innerHTML = `Está correto`
-    }
+    const maiorQueArroba = textArroba.includes('@@')
+    const maiorQuePonto = textArroba.includes('..')
+    const arrobaPonto = textArroba.includes('@.')
+    const arrobaPonto2 = textArroba.includes('.@')
 
-    else if (verificadorarroba < 1 && verificadorponto < 1) {       // < <
-    res.innerHTML = `Está incorreto`    
-    }
+//--------------------------------------------------------------------------------------------------------------------------------------------//
 
-    else if (verificadorarroba < 1 && verificadorponto > 1) {       // < >
-    res.innerHTML = `Está incorreto`    
-    }
-
-    else if (verificadorarroba > 1 && verificadorponto < 1) {       // > <
-    res.innerHTML = `Está incorreto`    
-    }
+if  (pegaArroba >= 1 && pegaPonto >= 1 && maiorQueArroba === false && maiorQuePonto === false && arrobaPonto === false && arrobaPonto2 === false)    {
+    res.innerText = `Parabéns o seu e-mail foi validado!`
+}
+    else    
+        res.innerText = `E-mail Inválido.`
 
     e.preventDefault()
 })
